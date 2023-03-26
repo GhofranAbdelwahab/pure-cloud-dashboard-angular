@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterRequest } from 'src/app/models/register.model';
-import { UserService } from 'src/app/services/user.service';
+import { DashboardService } from 'src/app/services/dashboard.service';
 import { TokenModel } from 'src/app/models/token.model';
 import { Router } from '@angular/router';
 import { Shared } from 'src/app/models/shared.model';
@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   private password: string;
   private user: TokenModel;
 
-  constructor(private router: Router, private userServices: UserService, private shared: Shared) { }
+  constructor(private router: Router, private userServices: DashboardService, private shared: Shared) { }
 
   ngOnInit() {
   }

@@ -50,11 +50,7 @@ export class TablesUserComponent implements OnInit, OnChanges {
 
 
   public accountType() {
-    if (this.shared.user.token_type.indexOf('bearer') >= 0) {
       this.shared.isAdmin = true;
-    } else {
-      this.shared.isAdmin = false;
-    }
   }
 
     // this.router.navigateByUrl('/tables', { skipLocationChange: true }).then(() => {

@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ADMIN_ROUTES } from '../sidebar/sidebar.component';
 import { USER_ROUTES } from '../sidebar/sidebar.component';
-import { UserService } from 'src/app/services/user.service';
+import { DashboardService } from 'src/app/services/dashboard.service';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
 import { Shared } from '../../models/shared.model';
@@ -16,8 +16,8 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
-  constructor(location: Location,  private element: ElementRef, private router: Router,
-              private userServices: UserService, private shared: Shared) {
+  constructor(location: Location, private element: ElementRef, private router: Router,
+              private userServices: DashboardService, private shared: Shared) {
     this.location = location;
   }
 

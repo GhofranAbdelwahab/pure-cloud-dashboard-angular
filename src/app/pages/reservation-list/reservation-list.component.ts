@@ -52,11 +52,7 @@ export class ReservationListComponent implements OnInit, OnChanges {
 
 
   public accountType() {
-    if (this.shared.user.token_type.indexOf('bearer') >= 0) {
       this.shared.isAdmin = true;
-    } else {
-      this.shared.isAdmin = false;
-    }
   }
 }
 

@@ -1,5 +1,6 @@
 import { TokenModel } from 'src/app/models/token.model';
 import {Injectable} from '@angular/core';
+import {DashboardResponse} from "./dashboard.model";
 
 @Injectable({
     providedIn: 'root'
@@ -7,7 +8,7 @@ import {Injectable} from '@angular/core';
 
 export class Shared {
     basic: String;
-    user: TokenModel;
+    dashboard: DashboardResponse;
     isAdmin = false;
     User_LoggedIN = false;
 }

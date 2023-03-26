@@ -4,27 +4,25 @@ import {Observable} from 'rxjs';
 import { RegisterRequest } from '../models/register.model';
 import { TokenModel } from '../models/token.model';
 import { Shared } from '../models/shared.model';
+import {DashboardResponse} from "../models/dashboard.model";
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class DashboardService {
   private BASE_URL = 'http://localhost:1234';
-  public LOGIN_ACCOUNT_URL = `${this.BASE_URL}/api/login`;
+  public DASHBOARD_URL = `${this.BASE_URL}/api/dashboard`;
 
 
   constructor(private http: HttpClient, private shared: Shared) {
 
   }
 
-  login(client_id: string, client_secret: string): Observable<TokenModel> {
-    this.shared.basic = btoa(client_id + ':' + client_secret);
+  loadDashboard(): Observable<DashboardResponse> {
     const headerJson = {
-      'Authorization': 'Basic ' + this.shared.basic,
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/json'
     };
     const headers = {headers: new HttpHeaders(headerJson)};
-    const body = {params: new HttpParams().append('grant_type', 'client_credentials')};
-    return this.http.post<TokenModel>(this.LOGIN_ACCOUNT_URL, body, headers);
+    return this.http.post<DashboardResponse>(this.DASHBOARD_URL, headers);
   }
 }
