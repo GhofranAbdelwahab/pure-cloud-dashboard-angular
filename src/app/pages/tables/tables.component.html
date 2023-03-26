@@ -1,0 +1,46 @@
+<div class="header bg-gradient-danger pb-6 pt-3 pt-md-7">
+    <div class="container-fluid">
+        <div class="row" *ngIf="this.shared.User_LoggedIN&&this.shared.isAdmin">
+            <div class="col-4"></div>
+            <div class="col-5 text-left" *ngIf="this.shared.isAdmin">
+                <div class="form-group">
+                    <input type="text" id="input-tablesize" class="form-control form-control-alternative" placeholder="Table Size" [(ngModel)]="size" type="number">
+                </div>
+            </div>
+            <div class="col-3 text-right">
+                <button type="button" (click)="addNewTable()" placement="top-center" triggers="hover focus click" *ngIf="this.shared.isAdmin" class="btn btn-success">
+                       <div><i class="ni ni-fat-add"></i><span>Add New Table</span></div>
+                    </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid mt--7" *ngIf="this.shared.User_LoggedIN">
+    <div class="row mt-5">
+        <div class="col">
+            <div class="card bg-default shadow">
+                <div class="card-header bg-transparent border-0">
+                    <h3 class="text-white mb-0">Restaurant Tables</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-dark table-flush">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Table Number</th>
+                                <th scope="col">Table Size</th>
+                                <th scope="col">Availability</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let table of tableList; let i = index">
+                                <td>{{table.id}}</td>
+                                <td>{{table.tableSize}}</td>
+                                <td><i class="ni ni-check-bold" *ngIf="table.available"></i> <i class="ni ni-fat-remove" *ngIf="!table.available"></i> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
