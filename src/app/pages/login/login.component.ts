@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { Router } from '@angular/router';
-import { Shared } from '../../models/shared.model';
-import {ErrorModel} from '../../models/error.model';
+import {DashboardResponse} from "../../models/dashboard.model";
 
 @Component({
   selector: 'app-login',
@@ -10,15 +9,11 @@ import {ErrorModel} from '../../models/error.model';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  private client_id: string;
-  private client_secret: string;
-  private error: ErrorModel;
+  private dashboard: DashboardResponse[];
 
-  constructor(private router: Router, private userServices: DashboardService, private shared: Shared) {}
+  constructor(private router: Router, private userServices: DashboardService) {}
 
   ngOnInit() {
-    this.shared.basic = '';
-    this.shared.dashboard  = null;
   }
   ngOnDestroy() {
   }
@@ -26,16 +21,18 @@ export class LoginComponent implements OnInit, OnDestroy {
   public onLogin() {
     this.userServices.loadDashboard().subscribe(
       res => {
-        this.shared.dashboard = res;
-        console.log(this.shared.dashboard.toString());
-        alert('Login Success');
-        this.router.navigate(['/user-profile']);
+        this.dashboard = res;
+        this.dashboard.forEach((item)=>{
+          console.log(item.metric);
+          console.log(item.stats.min);
+          console.log(item.stats.max);
+          console.log(item.stats.count);
+          console.log(item.stats.sum);
+        })
       },
       err => {
-        this.error = err;
-        alert('Login Failed');
+        alert('Loading Dashboard Failed');
       }
     );
-
   }
 }

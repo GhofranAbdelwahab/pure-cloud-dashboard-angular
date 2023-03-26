@@ -18,11 +18,11 @@ export class DashboardService {
 
   }
 
-  loadDashboard(): Observable<DashboardResponse> {
+  loadDashboard(): Observable<DashboardResponse[]> {
     const headerJson = {
       'Content-Type': 'application/json'
     };
     const headers = {headers: new HttpHeaders(headerJson)};
-    return this.http.post<DashboardResponse>(this.DASHBOARD_URL, headers);
+    return this.http.post<DashboardResponse[]>(this.DASHBOARD_URL, headers);
   }
 }
