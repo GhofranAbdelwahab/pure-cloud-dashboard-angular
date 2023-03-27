@@ -14,12 +14,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
   constructor(private router: Router, private userServices: DashboardService) {}
 
   ngOnInit() {
-    this.onLogin();
+    setInterval(() => {
+      this.loadDashboard();
+    }, 5000);
   }
   ngOnDestroy() {
   }
 
-  public onLogin() {
+  public loadDashboard() {
     this.userServices.loadDashboard().subscribe(
       res => {
         this.dashboard = res;
