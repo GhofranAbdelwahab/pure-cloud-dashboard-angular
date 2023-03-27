@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Shared } from '../../models/shared.model';
 
 declare interface RouteInfo {
     path: string;
@@ -31,19 +30,7 @@ export class SidebarComponent implements OnInit {
   public menuItems: any[];
   public isCollapsed = true;
 
-  constructor(private router: Router, private shared: Shared) { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {
-    if (this.shared.isAdmin === true) {
-          this.menuItems = ADMIN_ROUTES.filter(menuItem => menuItem);
-        this.router.events.subscribe((event) => {
-          this.isCollapsed = true;
-      });
-    } else {
-      this.menuItems = USER_ROUTES.filter(menuItem => menuItem);
-        this.router.events.subscribe((event) => {
-          this.isCollapsed = true;
-      });
-    }
-  }
+  ngOnInit() {}
 }

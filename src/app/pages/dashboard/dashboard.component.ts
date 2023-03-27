@@ -5,10 +5,10 @@ import {DashboardResponse} from "../../models/dashboard.model";
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class DashboardComponent implements OnInit, OnDestroy {
   private dashboard: DashboardResponse[] = [];
 
   constructor(private router: Router, private userServices: DashboardService) {}

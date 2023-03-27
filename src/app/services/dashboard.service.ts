@@ -1,9 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpRequest, HttpHeaders, HttpResponse, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import { RegisterRequest } from '../models/register.model';
-import { TokenModel } from '../models/token.model';
-import { Shared } from '../models/shared.model';
 import {DashboardResponse} from "../models/dashboard.model";
 
 @Injectable({
@@ -14,7 +11,7 @@ export class DashboardService {
   public DASHBOARD_URL = `${this.BASE_URL}/api/dashboard`;
 
 
-  constructor(private http: HttpClient, private shared: Shared) {
+  constructor(private http: HttpClient) {
 
   }
 
