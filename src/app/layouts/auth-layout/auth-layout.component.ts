@@ -16,7 +16,7 @@ export class AuthLayoutComponent implements OnInit, OnDestroy {
     const html = document.getElementsByTagName('html')[0];
     html.classList.add('auth-layout');
     const body = document.getElementsByTagName('body')[0];
-    body.classList.add('bg-default');
+    body.classList.add('bg-dark');
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
    });
