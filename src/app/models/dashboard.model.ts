@@ -10,14 +10,8 @@ export class DashboardResponse {
 
 export class Stats {
   count: number;
-  max: number;
-  min: number;
-  sum: number;
 
-  constructor(count: number, max: number, min: number, sum: number) {
+  constructor(count: number) {
     this.count = count;
-    this.max = max;
-    this.min = min;
-    this.sum = sum;
   }
 }
