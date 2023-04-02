@@ -11,8 +11,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-import { BarChartComponent } from './bar-chart/bar-chart.component';
-import { LineChartComponent } from './line-chart/line-chart.component';
 
 
 @NgModule({
@@ -28,8 +26,6 @@ import { LineChartComponent } from './line-chart/line-chart.component';
   declarations: [
     AppComponent,
     AuthLayoutComponent,
-    BarChartComponent,
-    LineChartComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
