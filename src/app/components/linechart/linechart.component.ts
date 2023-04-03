@@ -17,25 +17,35 @@ export class LinechartComponent implements OnInit {
   }
 
   lineChart() {
-    this.chart = new Chart("lineChart", {
-      type: 'line', //this denotes tha type of chart
-      data: {// values on X-Axis
-        labels: ['Riyadh', 'Jaddah', 'Taif', 'Hail', 'Makkah'],
-        datasets: [
-          {
-            label: "Top 5 Services",
-            data: ['467', '576', '572', '79', '92']
-          }
-        ]
+    this.chart =new Chart("lineChart", {
+      type: 'line',
+      data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+        datasets: [{
+          label: 'My First Dataset',
+          data: [10, 20, 20, 50, 50, 60],
+          borderColor: 'rgb(255, 99, 132)',
+          fill: false
+        }, {
+          label: 'My Second Dataset',
+          data: [5, 30, 25, 60, 45, 55],
+          borderColor: 'rgb(54, 162, 235)',
+          fill: false
+        }]
       },
       options: {
-        legend: {
-          position: 'top',
-          display: true,
-          fullWidth: true,
-          labels: {
-            fontSize: 20,
-            fontColor: '#000000',
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Month'
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Value'
+            }
           }
         }
       }

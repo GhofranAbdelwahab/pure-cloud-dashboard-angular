@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import Chart from 'chart.js';
+import {DashboardResponse} from "../../models/dashboard.model";
+import {DashboardService} from "../../services/dashboard.service";
 
 @Component({
   selector: 'app-doughnut',
@@ -8,39 +10,58 @@ import Chart from 'chart.js';
 })
 export class DoughnutComponent implements OnInit {
   public chart: Chart;
+  private dashboard: DashboardResponse[] = [];
 
-  constructor() {
+  constructor(private userServices: DashboardService) {
   }
 
   ngOnInit(): void {
-    this.doughnutChart();
+    setInterval(() => {
+      this.loadDashboard();
+      this.doughnutChart();
+    }, 10000);
+  }
+
+  public loadDashboard() {
+    this.userServices.loadDashboard().subscribe(
+      res => {
+        this.dashboard = res;
+      },
+      err => {
+        this.dashboard = []
+      }
+    );
   }
 
   doughnutChart() {
     this.chart = new Chart("DoughnutChart", {
-      type: 'doughnut', //this denotes tha type of chart
-      data: {// values on X-Axis
-        labels: ['Riyadh', 'Jaddah', 'Taif', 'Hail', 'Makkah'],
-        datasets: [
-          {
-            label: "Top 5 Services",
-            data: ['467', '576', '572', '79', '92'],
-            backgroundColor: ['#2ecc71', '#29FF29', '#2374DB', '#F233D2', '#DB8F23']
-          }
-        ]
+      type: 'doughnut',
+      data: {
+        labels: this.dashboard.map(item => item.metric ),
+        datasets: [{
+          label: '# of Votes',
+          data: this.dashboard.map(item => item.stats.count ),
+          backgroundColor: [
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 206, 86, 0.2)'
+          ],
+          borderColor: [
+            'rgba(75, 192, 192, 1)',
+            'rgba(255, 99, 132, 1)',
+            'rgba(255, 206, 86, 1)'
+          ],
+          borderWidth: 1
+        }]
       },
       options: {
-        legend: {
-          position: 'top',
+        responsive: true,
+        maintainAspectRatio: false,
+        title: {
           display: true,
-          fullWidth: true,
-          labels: {
-            fontSize: 50,
-            fontColor: '236AFF',
-          }
+          text: 'Our Calls'
         }
       }
     });
   }
-
 }

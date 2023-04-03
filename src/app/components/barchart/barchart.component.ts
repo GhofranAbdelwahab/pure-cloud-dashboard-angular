@@ -17,26 +17,35 @@ export class BarchartComponent implements OnInit {
 
   barChart(){
     this.chart = new Chart("BarChart", {
-      type: 'bar', //this denotes tha type of chart
-      data: {// values on X-Axis
-        labels: ['Riyadh', 'Jaddah', 'Taif','Hail','Makkah' ],
-        datasets: [
-          {
-            label:"Top 5 Services",
-            data: ['690','576', '572', '79', '92'],
-            backgroundColor:  [ '#2374DB', '#2ecc71', '#e74c3c','#DB2360', '#F9C728'],
-          }
-        ]
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: 'Our services',
+          data: [12, 19, 3, 5, 2, 3],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
       },
       options: {
-        aspectRatio:2,
-        legend: {
-          position: 'top',
-          display: true,
-          fullWidth: true,
-          labels: {
-            fontSize: 20,
-            fontColor: '#00000',
+        scales: {
+          y: {
+            beginAtZero: true
           }
         }
       }
