@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LinechartComponent } from './linechart/linechart.component';
 import { DoughnutComponent } from './doughnut/doughnut.component';
 import { BubbleComponent } from './bubble/bubble.component';
+import { PolarareaComponent } from './polararea/polararea.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { BubbleComponent } from './bubble/bubble.component';
     DashboardComponent,
     LinechartComponent,
     DoughnutComponent,
-    BubbleComponent
+    BubbleComponent,
+    PolarareaComponent
   ],
   exports: [
     NavbarComponent,
@@ -29,7 +31,8 @@ import { BubbleComponent } from './bubble/bubble.component';
     DashboardComponent,
     LinechartComponent,
     DoughnutComponent,
-    BubbleComponent
+    BubbleComponent,
+    PolarareaComponent
   ]
 })
 export class ComponentsModule { }
