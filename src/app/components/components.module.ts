@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BarchartComponent } from './barchart/barchart.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LinechartComponent } from './linechart/linechart.component';
+import { DoughnutComponent } from './doughnut/doughnut.component';
+import { BubbleComponent } from './bubble/bubble.component';
 
 @NgModule({
   imports: [
@@ -13,14 +16,20 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule
   ],
   declarations: [
-    FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    BarchartComponent,
+    DashboardComponent,
+    LinechartComponent,
+    DoughnutComponent,
+    BubbleComponent
   ],
   exports: [
-    FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    BarchartComponent,
+    DashboardComponent,
+    LinechartComponent,
+    DoughnutComponent,
+    BubbleComponent
   ]
 })
 export class ComponentsModule { }

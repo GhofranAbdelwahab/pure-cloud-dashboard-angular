@@ -1,0 +1,29 @@
+<div class="row align-items-center g-4">
+  <div class="col-12 col-md-auto" *ngFor="let item of dashboard; let i = index">
+    <div class="d-flex align-items-center" >
+      <img src="../../../assets/img/icons/{{item.metric}}.png" alt height="49" width="49">
+      <div class="ms-3">
+        <h4 class="mb-0">{{item.stats.count}} {{item.metric}}</h4>
+        <div class="fs--1 mb-0">
+          {{item.metric}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--<div class="row justify-content-center">-->
+<!--  <div class="col-lg-3 col-md-3"*ngFor="let item of dashboard; let i = index">-->
+<!--    <div class="card bg-light shadow-sm border-0" >-->
+<!--      <div class="card-body px-lg-5 py-lg-5">-->
+<!--        <div class="text-center text-muted mb-4">-->
+<!--          {{item.metric}}-->
+<!--        </div>-->
+<!--        <div class="text-center text-muted mb-4">-->
+<!--          <small>{{item.stats.count}}</small>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
