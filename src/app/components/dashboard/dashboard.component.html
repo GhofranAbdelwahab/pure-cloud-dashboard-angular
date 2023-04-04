@@ -1,7 +1,7 @@
 <div class="row align-items-center g-4">
-  <div class="col-12 col-md-auto" *ngFor="let item of dashboard; let i = index">
+  <div class="col-12 col-md-4" *ngFor="let item of dashboard; let i = index">
     <div class="d-flex align-items-center" >
-      <img src="../../../assets/img/icons/{{item.metric}}.png" alt height="49" width="49">
+      <img src="../../../assets/img/icons/{{item.metric}}.png" alt height="100" width="100">
       <div class="ms-3">
         <h4 class="mb-0">{{item.stats.count}} {{item.metric}}</h4>
         <div class="fs--1 mb-0">
